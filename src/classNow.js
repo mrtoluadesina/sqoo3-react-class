@@ -68,3 +68,27 @@ const [number, setNumber] = useState(0)
 defaultProps = {
   name: "Adams"
 }
+
+
+
+const values = {
+  name: "",
+  email: "",
+  phone: ""
+}
+
+// function spread
+const people = {
+  ...values, 
+  // copy everything in values
+  // paste each of them
+
+  //name: "",
+  email: "",
+  phone: "",
+
+  // find the key and this new value 
+
+  name: "Taiwo"
+
+}

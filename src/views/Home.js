@@ -1,13 +1,23 @@
-import React from 'react';
-import Card from '../components/Card';
-import { SimpleInput } from '../components/Inputs';
+import React, { useState } from "react";
+import Form from "../components/Form";
+import UserForm from "../components/UserForm";
 
 export default function Home(props) {
+  const [values, setValues] = useState({
+    name: "",
+    email: ""
+  })
+
+  const handleChange = event => setValues({...values, [event.target.name]: event.target.value})
+
+  const handleSubmit = e => {
+    e.preventDefault();
+    console.log(values);
+  }
+
   return (
-    <Card>
-      <h2>Login!</h2>
-      <SimpleInput type="text" placeholder="Enter Name" name="name" />
-      <SimpleInput type="email" placeholder="Enter Email" name="email" />
-    </Card>
-  )
+    <Form submit={handleSubmit}>
+      <UserForm handleChange={handleChange} />
+    </Form>
+  );
 }
